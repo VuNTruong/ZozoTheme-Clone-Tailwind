@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- ... -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles/tailwind.css" rel="stylesheet" />
+    <link href="styles/additionalCss.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source Sans Pro"
+    />
+    <script src="js/script.js"></script>
+  </head>
+  <body class="font-sans text-black-600" onscroll="scrollHandler()">
+    <!-- Sticky header (this will be shown when user scrolls over 80px) -->
+    <div id="sticky-header" class="sticky-header fixed w-screen">
+      <div class="px-8 py-2 bg-white flex flex-row justify-between shadow-lg">
+        <div class="flex justify-start items-center">
+          <img
+            class="left-hamburger-menu-icon h-4"
+            src="icons/hamburgerMenuIcon-dark.png"
+          />
+          <p class="font-bold text-black text-2xl m-4">EPOINT</p>
+        </div>
+
+        <div class="flex justify-end items-center">
+          <div class="header-options">
+            <div class="flex">
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                HOME
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                HEADER
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                PAGES
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                FEATURES
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                PORTFOLIO
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                BLOG
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                SHOP
+              </p>
+              <p class="text-black text-xs font-bold mx-3 cursor-pointer">
+                ELEMENT
+              </p>
+            </div>
+          </div>
+
+          <img class="h-6 m-4" src="icons/searchIcon-dark.png" />
+          <img class="h-6" src="icons/bellIcon-dark.png" />
+          <img
+            class="h-6 m-4 cursor-pointer"
+            src="icons/hamburgerMenuIconWithBorder-dark.png"
+            onclick="openHamburgerMenu()"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- End Sticky header -->
+
+    <!-- Left Hamburger menu -->
+    <div
+      id="left-hamburger-menu"
+      class="left-hamburger-menu fixed h-screen bg-black left-0 p-3 overflow-y-scroll w-4/5 z-10"
+    >
+      <div class="flex flex-col items-center">
+        <p class="text-white font-medium">MENU</p>
+
+        <input
+          class="flex mt-4 rounded-full h-7 w-11/12 items-center justify-center px-3"
+          placeholder="Search"
+        />
+
+        <div class="mt-5 w-11/12">
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">HOME</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">14</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">HEADERS</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">2</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">PAGES</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">4</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">FEATURES</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">8</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">PORTFOLIO</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">16</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">BLOG</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">7</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">SHOPS</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">7</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center cursor-pointer mt-3">
+            <div class="flex justify-start">
+              <p class="w-3/5 text-white text-sm">ELEMENTS</p>
+            </div>
+
+            <div class="flex justify-end items-center">
+              <p class="w-2/5 mr-3 text-white text-sm">4</p>
+              <img class="h-4" src="icons/right-icon-white.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="left-hamburger-menu-area" class="fixed w-1/5 h-screen z-10 cursor-pointer right-0"></div>
+    <!-- End Left Hamburger menu -->
+
+    <!-- Hamburger menu -->
+    <div
+      id="hamburger-menu"
+      class="fixed h-screen bg-black hamburger-menu right-0 p-10 overflow-y-scroll"
+    >
+      <img
+        class="h-7 mb-7 cursor-pointer"
+        src="icons/close-hamburger-menu.png"
+        onclick="closeHamburgerMenu()"
+      />
+
+      <p class="text-white text-xl font-medium">About Us</p>
+      <img class="mt-5" src="images/promo-hamburger-menu.jpg" />
+      <p class="text-white mt-5 font-light">
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+        dolore velit esse cillum dolore eu fugiat nulla pariatur dolore eu
+        fugiat nulla pariatur.
+      </p>
+
+      <p class="text-white text-xl font-medium mt-10">Recent Posts</p>
+      <div class="flex h-20 mt-5">
+        <div class="flex w-1/4 items-center">
+          <img class="h-16 w-16 rounded-full" src="images/t3.jpeg" />
+        </div>
+        <div class="flex w-3/4 items-center">
+          <div class="flex flex-col ml-2">
+            <p class="text-white text-sm font-medium">
+              Google Released New Android Version
+            </p>
+            <p class="text-white text-xs">Aug 16, 2016</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex h-20 mt-5">
+        <div class="flex w-1/4 items-center">
+          <img class="h-16 w-16 rounded-full" src="images/t1.jpg" />
+        </div>
+        <div class="flex w-3/4 items-center">
+          <div class="flex flex-col ml-2">
+            <p class="text-white text-sm font-medium">
+              We are opeing new office in California
+            </p>
+            <p class="text-white text-xs">Aug 20, 2016</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex h-20 mt-5">
+        <div class="flex w-1/4 items-center">
+          <img class="h-16 w-16 rounded-full" src="images/t2.jpg" />
+        </div>
+        <div class="flex w-3/4 items-center">
+          <div class="flex flex-col ml-2">
+            <p class="text-white text-sm font-medium">
+              Another milestone we reached in SEO
+            </p>
+            <p class="text-white text-xs">Aug 23, 2016</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-white text-xl font-medium mt-10">Social Share</p>
+      <div class="flex flex-wrap mt-3">
+        <img class="h-7 m-2" src="logo/facebookLogo.png" />
+        <img class="h-7 m-2" src="logo/instaLogo.png" />
+        <img class="h-7 m-2" src="logo/twitterLogo.png" />
+        <img class="h-7 m-2" src="logo/githubLogo.png" />
+        <img class="h-7 m-2" src="logo/youtubeLogo.png" />
+        <img class="h-7 m-2" src="logo/linkedInLogo.png" />
+        <img class="h-7 m-2" src="logo/mediumLogo.png" />
+        <img class="h-7 m-2" src="logo/reddit-logo.png" />
+      </div>
+    </div>
+
+    <div
+      id="hamburger-menu-area"
+      class="fixed w-screen h-screen hamburger-menu-area z-10 cursor-pointer"
+      onclick="closeHamburgerMenu()"
+    ></div>
+    <!-- End hamburger menu -->
+
+    <!-- Page content -->
+    <div id="page-content" class="page-content">
+      <!-- Header nav bar -->
+      <div
+        class="absolute px-8 py-2 header-color flex flex-row justify-between w-full"
+      >
+        <!-- Left side of the nav bar -->
+        <div class="flex justify-start items-center">
+          <img
+            class="left-hamburger-menu-icon h-4"
+            src="icons/hamburgerMenuIcon.png"
+            onclick="openLeftHamburgerMenu()"
+          />
+          <p class="font-bold text-white text-2xl m-4">EPOINT</p>
+        </div>
+
+        <!-- Right side of the nav bar -->
+        <div class="flex justify-end items-center">
+          <div class="header-options">
+            <div class="flex">
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                HOME
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                HEADER
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                PAGES
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                FEATURES
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                PORTFOLIO
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                BLOG
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                SHOP
+              </p>
+              <p class="text-white text-xs font-bold mx-3 cursor-pointer">
+                ELEMENT
+              </p>
+            </div>
+          </div>
+
+          <img class="h-6 m-4" src="icons/searchIcon.png" />
+          <img class="h-6" src="icons/bellIcon.png" />
+          <img
+            class="h-6 m-4 cursor-pointer"
+            src="icons/hamburgerMenuIconWithBorder.png"
+            onclick="openHamburgerMenu()"
+          />
+        </div>
+      </div>
+
+      <!-- PROMO -->
+      <div
+        class="flex flex-col bg-fixed pt-20"
+        style="background-image: url(images/9.jpg);"
+        onmouseenter="mouseOverPromoAreaHandler()"
+        onmouseleave="mouseOutPromoAreaHandler()"
+      >
+        <!-- Promo content -->
+        <div class="flex pt-20 overflow-hidden">
+          <!-- Promo side (it can be button) -->
+          <div class="flex w-1/12 justify-center items-center">
+            <img
+              id="promo-pages-go-left-button"
+              class="w-1/2 promo-icon cursor-pointer"
+              src="icons/left-icon.png"
+              onclick="goBackPagePromoPages()"
+            />
+          </div>
+
+          <!-- Promo main content -->
+          <div
+            id="promo-main-content"
+            class="flex justify-center overflow-hidden w-10/12"
+          >
+            <div class="grid promo-pages-grid">
+              <div class="flex flex-col items-center promo-page-card-width">
+                <p class="text-white text-center text-5xl font-extrabold">
+                  WE ARE CREATIVE
+                </p>
+
+                <p
+                  class="promo-text text-white text-center mt-10 promo-page-card-text"
+                >
+                  We believe in Simple, Creative & Flexible Design Standards.
+                  Unlimited features, elements and fast and friendly support
+                  gives ultimate website to boom your business.
+                </p>
+
+                <button
+                  class="mt-10 primary-color w-max text-white text-lg font-medium py-2 px-5 rounded-full"
+                >
+                  LEARN MORE
+                </button>
+              </div>
+
+              <div class="flex flex-col items-center promo-page-card-width">
+                <p class="text-white text-center text-5xl font-extrabold">
+                  WE ARE SIMPLE
+                </p>
+
+                <p
+                  class="promo-text text-white text-center mt-10 promo-page-card-text"
+                >
+                  We believe in Simple, Creative & Flexible Design Standards.
+                  Unlimited features, elements and fast and friendly support
+                  gives ultimate website to boom your business.
+                </p>
+
+                <button
+                  class="mt-10 primary-color w-max text-white text-lg font-medium py-2 px-5 rounded-full"
+                >
+                  LEARN MORE
+                </button>
+              </div>
+
+              <div class="flex flex-col items-center promo-page-card-width">
+                <p class="text-white text-center text-5xl font-extrabold">
+                  WE ARE POWERFUL
+                </p>
+
+                <p
+                  class="promo-text text-white text-center mt-10 promo-page-card-text"
+                >
+                  We believe in Simple, Creative & Flexible Design Standards.
+                  Unlimited features, elements and fast and friendly support
+                  gives ultimate website to boom your business.
+                </p>
+
+                <button
+                  class="mt-10 primary-color w-max text-white text-lg font-medium py-2 px-5 rounded-full"
+                >
+                  LEARN MORE
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Promo side -->
+          <div class="flex w-1/12 justify-center items-center">
+            <img
+              id="promo-pages-go-right-button"
+              class="w-1/2 promo-icon cursor-pointer"
+              src="icons/right-icon.png"
+              onclick="goForwardPagePromoPages()"
+            />
+          </div>
+        </div>
+
+        <!-- Paging buttons -->
+        <div class="flex flex-col items-center m-10">
+          <div class="flex">
+            <div
+              class="primary-color h-4 w-4 rounded-full mx-1 paging-button cursor-pointer"
+              onclick="gotoPagePromoPage(1)"
+            ></div>
+            <div
+              class="primary-color h-4 w-4 rounded-full mx-1 paging-button cursor-pointer"
+              onclick="gotoPagePromoPage(2)"
+            ></div>
+            <div
+              class="primary-color h-4 w-4 rounded-full mx-1 paging-button cursor-pointer"
+              onclick="gotoPagePromoPage(3)"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <!-- END PROMO -->
+
+      <!-- INTRODUCTION -->
+      <div class="grid introduction-grid p-20 gap-10">
+        <div class="flex flex-col">
+          <p class="text-xl font-medium">
+            We have more than 10 years experience in web design and development
+          </p>
+          <img class="mt-10" src="images/2.jpg" />
+          <p class="mt-5 font-light">
+            Et culpa dolore odio voluptate suscipit corporis sed ad sunt autem!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+
+        <div class="flex flex-col">
+          <p class="font-light">
+            Et culpa dolore odio voluptate suscipit corporis sed ad sunt autem!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          </p>
+          <p class="mt-10 font-light">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et culpa
+            dolore odio voluptate suscipit corporis sed ad sunt autem! Lorem
+            ipsum dolor sit amet, consectetur adipisicing elit. Et culpa dolore
+            odio voluptate suscipit corporis sed ad sunt autem!
+          </p>
+          <p class="mt-10 font-light">
+            Et culpa dolore odio voluptate suscipit corporis sed ad sunt autem!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          </p>
+
+          <div class="grid introduction-services-grid mt-10">
+            <div class="flex items-center mr-10">
+              <img class="h-5 mr-2" src="icons/analysis-icon.png" />
+              <p class="text-base font-light">Analysis</p>
+            </div>
+
+            <div class="flex items-center">
+              <img class="h-5 mr-2" src="icons/design-icon.png" />
+              <p class="text-base font-light">Design</p>
+            </div>
+
+            <div class="flex items-center">
+              <img class="h-5 mr-2" src="icons/launch-icon.png" />
+              <p class="text-base font-light">Launch</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END INTRODUCTION -->
+
+      <!-- SERVICES -->
+      <div class="flex flex-col p-20 justify-center services-background">
+        <p class="font-thin text-3xl text-center">
+          We Build Awesome and Beautiful Premium HTML, Wordpress, Magento,
+          Joomla, E-commerce Themes and Email Templates.
+        </p>
+
+        <div class="grid services-grid gap-10 mt-10">
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/creative-icon.png" />
+            <p class="mt-5 text-lg font-semibold">Creative Design</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/mobile-app-icon.png" />
+            <p class="mt-5 text-lg font-semibold">App Design</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/email-icon.png" />
+            <p class="mt-5 text-lg font-semibold">Email Marketing</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/marketing-icon.png" />
+            <p class="mt-5 text-lg font-semibold">Online Marketing</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/ecommerce-icon.png" />
+            <p class="mt-5 text-lg font-semibold">E Commerce</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+
+          <div class="flex flex-col">
+            <img class="h-10 w-10" src="icons/support-icon.png" />
+            <p class="mt-5 text-lg font-semibold">Friendly Support</p>
+            <div class="h-0.5 primary-color w-24 mt-5"></div>
+            <p class="mt-5 font-light">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              commodo ligula eget dolor. Aenean massa.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- END SERVICES -->
+
+      <!-- LATEST PROJECT -->
+      <div class="flex flex-col items-center mt-10">
+        <p class="font-medium text-3xl">Our Latest Project</p>
+        <p class="mt-5 text-center px-5 font-light">
+          We Build Awesome and Beautiful Premium HTML, Wordpress, Magento,
+          Joomla, E-commerce Themes and Email Templates.
+        </p>
+
+        <div class="h-0.5 primary-color w-24 mt-5"></div>
+
+        <div class="flex mt-10 mb-10">
+          <div class="flex slidable-content-side items-center justify-center">
+            <img
+              class="w-10 h-10 cursor-pointer"
+              src="icons/left-icon-black.ico"
+              onclick="goBackLatestProjectPages()"
+            />
+          </div>
+
+          <div
+            id="latest-project-scroll-area"
+            class="flex slidable-content-main overflow-hidden"
+          >
+            <div class="latest-project-cards">
+              <div
+                class="flex flex-col items-center latest-project-cards__card"
+              >
+                <img src="images/latest-project-1.jpeg" />
+                <p class="mt-5 font-semibold text-xl">Wifi Creator</p>
+                <p>Branding</p>
+              </div>
+
+              <div
+                class="flex flex-col items-center latest-project-cards__card"
+              >
+                <img src="images/latest-project-2.jpeg" />
+                <p class="mt-5 font-semibold text-xl">Ohio Shopper</p>
+                <p>Photography</p>
+              </div>
+
+              <div
+                class="flex flex-col items-center latest-project-cards__card"
+              >
+                <img src="images/latest-project-3.jpeg" />
+                <p class="mt-5 font-semibold text-xl">Expert Book Seller</p>
+                <p>Branding</p>
+              </div>
+
+              <div
+                class="flex flex-col items-center latest-project-cards__card"
+              >
+                <img src="images/latest-project-4.jpeg" />
+                <p class="mt-5 font-semibold text-xl">Limpton Creation</p>
+                <p>Art</p>
+              </div>
+
+              <div
+                class="flex flex-col items-center latest-project-cards__card"
+              >
+                <img src="images/latest-project-5.jpg" />
+                <p class="mt-5 font-semibold text-xl">Orion Studio</p>
+                <p>Web Design</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex slidable-content-side items-center justify-center">
+            <img
+              class="w-10 h-10 cursor-pointer"
+              src="icons/right-icon-black.png"
+              onclick="goForwardPageLatestProjectPages()"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- END LATEST PROJECT -->
+
+      <!-- CONTACT -->
+      <div class="contact primary-color p-10">
+        <div class="flex justify-start items-center">
+          <p class="text-white font-medium text-lg">
+            We ensure quality & support. People love us & we love them. We
+            provide services more than 100000 Customers worldwide. Do you need
+            any Help?
+          </p>
+        </div>
+
+        <div class="flex justify-end">
+          <button
+            class="flex items-center bg-black px-4 py-3 rounded-lg w-1/2"
+            style="width: 190px;"
+          >
+            <p class="text-white">Contact now</p>
+            <img class="h-5 ml-2" src="icons/right-arrow.png" />
+          </button>
+        </div>
+      </div>
+      <!-- END CONTACT -->
+
+      <!-- FEEDBACK -->
+      <div class="flex flex-col items-center mt-20">
+        <p class="text-3xl text-medium">What Clients Say?</p>
+
+        <div class="h-0.5 primary-color w-24 mt-5"></div>
+
+        <div class="flex mt-10 mb-10">
+          <div class="flex slidable-content-side items-center justify-center">
+            <img
+              class="w-10 h-10 cursor-pointer"
+              src="icons/left-icon-black.ico"
+              onclick="goBackFeedbackPages()"
+            />
+          </div>
+
+          <div class="flex slidable-content-main overflow-hidden">
+            <div class="flex feedback-cards">
+              <div class="flex feedback-cards__card">
+                <img class="h-10 mr-5" src="icons/quote-icon.png" />
+
+                <div class="flex flex-col">
+                  <p class="font-thin text-lg">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+
+                  <p class="font-normal text-xl mt-3">Sue</p>
+                  <p class="font-normal text-gray-400">Microsoft</p>
+                </div>
+              </div>
+
+              <div class="flex feedback-cards__card">
+                <img class="h-10 mr-5" src="icons/quote-icon.png" />
+
+                <div class="flex flex-col">
+                  <p class="font-thin text-lg">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+
+                  <p class="font-normal text-xl mt-3">Pierre</p>
+                  <p class="font-normal text-gray-400">Airbus</p>
+                </div>
+              </div>
+
+              <div class="flex feedback-cards__card">
+                <img class="h-10 mr-5" src="icons/quote-icon.png" />
+
+                <div class="flex flex-col">
+                  <p class="font-thin text-lg">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+
+                  <p class="font-normal text-xl mt-3">Denis</p>
+                  <p class="font-normal text-gray-400">Boeing</p>
+                </div>
+              </div>
+
+              <div class="flex feedback-cards__card">
+                <img class="h-10 mr-5" src="icons/quote-icon.png" />
+
+                <div class="flex flex-col">
+                  <p class="font-thin text-lg">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+
+                  <p class="font-normal text-xl mt-3">Ed</p>
+                  <p class="font-normal text-gray-400">Delta</p>
+                </div>
+              </div>
+
+              <div class="flex feedback-cards__card">
+                <img class="h-10 mr-5" src="icons/quote-icon.png" />
+
+                <div class="flex flex-col">
+                  <p class="font-thin text-lg">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+
+                  <p class="font-normal text-xl mt-3">Djokovic</p>
+                  <p class="font-normal text-gray-400">ATP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex slidable-content-side items-center justify-center">
+            <img
+              class="w-10 h-10 cursor-pointer"
+              src="icons/right-icon-black.png"
+              onclick="goForwardFeedbackPages()"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- END FEEDBACK -->
+    </div>
+  </body>
+</html>
