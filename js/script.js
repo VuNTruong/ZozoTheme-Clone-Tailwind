@@ -291,11 +291,15 @@ function closeHamburgerMenu() {
 //******************** Left Hamburger menu *********************/
 // The function to open left hamburger menu
 function openLeftHamburgerMenu() {
-  // Get the left hamburger menu element
+  // Get the left hamburger menu element and left hamburger menu area
   var leftHamburgerMenu = document.getElementById("left-hamburger-menu");
+  var leftHamburgerMenuArea = document.getElementById(
+    "left-hamburger-menu-area"
+  );
 
   // Show the menu
   leftHamburgerMenu.classList.toggle("show");
+  leftHamburgerMenuArea.classList.toggle("show");
 
   // Animate the menu in
   leftHamburgerMenu.classList.add(
@@ -305,18 +309,20 @@ function openLeftHamburgerMenu() {
   // Remove the animation once they are done
   leftHamburgerMenu.addEventListener("animationend", (event) => {
     if (event.animationName == "slide-in-left-to-right-left-hamburger-menu") {
-      leftHamburgerMenu.classList.remove("animate-slide-in-left-to-right-left-hamburger-menu");
+      leftHamburgerMenu.classList.remove(
+        "animate-slide-in-left-to-right-left-hamburger-menu"
+      );
     }
-  })
+  });
 }
 
 // The function to close left hamburger menu
 function closeLeftHamburgerMenu() {
-  // Get the left hamburger menu element
+  // Get the left hamburger menu element and left hamburger menu area
   var leftHamburgerMenu = document.getElementById("left-hamburger-menu");
-
-  // Hide the menu
-  leftHamburgerMenu.classList.remove("show");
+  var leftHamburgerMenuArea = document.getElementById(
+    "left-hamburger-menu-area"
+  );
 
   // Animate the menu away
   leftHamburgerMenu.classList.add(
@@ -326,9 +332,15 @@ function closeLeftHamburgerMenu() {
   // Remove the animation once they are done
   leftHamburgerMenu.addEventListener("animationend", (event) => {
     if (event.animationName == "slide-out-right-to-left-left-hamburger-menu") {
-      leftHamburgerMenu.classList.remove("animate-slide-out-right-to-left-left-hamburger-menu")
+      leftHamburgerMenu.classList.remove(
+        "animate-slide-out-right-to-left-left-hamburger-menu"
+      );
+
+      // Hide the menu
+      leftHamburgerMenu.classList.remove("show");
+      leftHamburgerMenuArea.classList.remove("show");
     }
-  })
+  });
 }
 //******************** End Left Hamburger menu *********************/
 

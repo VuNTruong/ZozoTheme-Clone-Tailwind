@@ -37,6 +37,10 @@
 .left-hamburger-menu {
   display: none;
 }
+
+.left-hamburger-menu-area {
+  display: none;
+}
 /* End Hamburger menu */
 
 /* Sticky header */
