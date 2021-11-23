@@ -7,11 +7,17 @@ var currentPageLatestProjectPages = 1;
 // This is to keep track of current page in feedback pages
 var currentPageFeedbackPages = 1;
 
+// This is to keep track of current page in client logo pages
+var currentPageClientLogoPages = 1;
+
 // This is to keep track of current width of the promo page
 var promoPageCurrentWidth = 0;
 
 // This is to keep track of current width of a single latest project card
 var latestProjectCardCurrentWidth = 0;
+
+// This is to keep track of current width of client logo card
+var clientLogoCardCurrentWidth = 0;
 
 // This is to keep track of current width of the feedback card
 var feedbackCardCurrentWidth = 0;
@@ -27,6 +33,12 @@ var numberOfPagesFeedbackPages = 0;
 
 // This is to keep track of number of cards per page in feedback pages
 var numberOfCardsPerPageFeedbackPages = 0;
+
+// This is to keep track of number of pages in client logo pages
+var numberOfPagesClientLogoPages = 0;
+
+// This is to keep track of number of cards per page in client logo pages
+var numberOfCardsPerPageClientLogoPages = 0;
 
 // Get the root CSS element
 var r = document.querySelector(":root");
@@ -213,6 +225,44 @@ function takeUserToSpecifiedFeedbackPage(pageNumber) {
 }
 //******************** End Feedback pages *********************/
 
+//******************** Client logo pages *********************/
+// The function to go to previous page in client logo pages
+function goBackPageClientLogoPages() {
+  // Check to see if user is at first page or not
+  if (currentPageClientLogoPages == 1) {
+    // Call the function and take user to the last page
+    takeUserToSpecifiedClientLogoPage(numberOfPagesClientLogoPages);
+  } else {
+    // Call the function and take user to the previous page
+    takeUserToSpecifiedClientLogoPage(currentPageClientLogoPages - 1);
+  }
+}
+
+// The function to go to next page in client logo pages
+function goForwardPageClientLogoPages() {
+  // Check to see if user is at the last page or not
+  if (currentPageClientLogoPages == numberOfPagesClientLogoPages) {
+    // Call the function and take user to the first page
+    takeUserToSpecifiedClientLogoPage(1);
+  } else {
+    // Call the function and take user to the next page
+    takeUserToSpecifiedClientLogoPage(currentPageClientLogoPages + 1);
+  }
+}
+
+// The function to take user to a specified client logo pages
+function takeUserToSpecifiedClientLogoPage(pageNumber) {
+  // Update current page
+  currentPageClientLogoPages = pageNumber;
+
+  // Update cursor
+  r.style.setProperty(
+    "--client-logo-page-cursor",
+    `-${(clientLogoCardCurrentWidth + 10) * (pageNumber - 1)}px`
+  );
+}
+//******************** End Client logo pages *********************/
+
 //******************** Hamburger menu *********************/
 // The function to open hamburger menu
 function openHamburgerMenu() {
@@ -374,6 +424,11 @@ function adjustPageSize() {
   // Get the feedback card element
   var feedbackCard = document.getElementsByClassName("feedback-cards__card")[0];
 
+  // Get the client logo element
+  var clientLogoCard = document.getElementsByClassName(
+    "client-logo-cards__card"
+  )[0];
+
   // Update current width of the promo page
   promoPageCurrentWidth = promoPageElement.clientWidth;
 
@@ -382,6 +437,9 @@ function adjustPageSize() {
 
   // Update current width of the feedback card
   feedbackCardCurrentWidth = feedbackCard.clientWidth;
+
+  // Update current width of the client logo card
+  clientLogoCardCurrentWidth = clientLogoCard.clientWidth;
 
   // Update page width for promo pages container
   r.style.setProperty("--promo-page-width", `${promoPageCurrentWidth}px`);
@@ -409,6 +467,14 @@ function adjustPageSize() {
 
   // Update number of feedback pages
   numberOfPagesFeedbackPages = 5 - numberOfCardsPerPageFeedbackPages + 1;
+
+  // Update number of client logo cards per page
+  numberOfCardsPerPageClientLogoPages = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue("--number-of-client-logo-cards-per-page");
+
+  // Update number of client logo pages
+  numberOfPagesClientLogoPages = 10 - numberOfCardsPerPageClientLogoPages + 1;
 }
 
 // Add a listener for when the window resizes

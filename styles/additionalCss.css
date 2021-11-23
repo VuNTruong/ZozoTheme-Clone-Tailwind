@@ -4,8 +4,10 @@
   --promo-icon-display: none;
   --latest-project-page-cursor: 0px;
   --feedback-page-cursor: 0px;
+  --client-logo-page-cursor: 0px;
   --number-of-latest-project-cards-per-page: 4;
   --number-of-feedback-cards-per-page: 3;
+  --number-of-client-logo-cards-per-page: 7;
   --page-content-margin-right: 0px;
   --page-content-margin-left: 0px;
   --sticky-header-display: none;
@@ -146,6 +148,17 @@
 
 .feedback-cards__card {
   width: calc((80vw - 40px) / 3);
+}
+
+.client-logo-cards {
+  transition: margin 500ms;
+  transition-timing-function: ease-out;
+  margin-left: var(--client-logo-page-cursor);
+  grid-gap: 10px;
+}
+
+.client-logo-cards__card {
+  width: calc((80vw - 60px) / 7);
 }
 
 @keyframes fade-in {
@@ -396,4 +409,44 @@
 /* This is used foe menu */
 .show {
   display: block;
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 981px) {
+  :root {
+    --number-of-client-logo-cards-per-page: 5;
+  }
+
+  .client-logo-cards__card {
+    width: calc((80vw - 40px) / 5);
+  }
+}
+
+@media only screen and (max-width: 980px) and (min-width: 771px) {
+  :root {
+    --number-of-client-logo-cards-per-page: 4;
+  }
+
+  .client-logo-cards__card {
+    width: calc((80vw - 30px) / 4);
+  }
+}
+
+@media only screen and (max-width: 770px) and (min-width: 531px) {
+  :root {
+    --number-of-client-logo-cards-per-page: 3;
+  }
+
+  .client-logo-cards__card {
+    width: calc((80vw - 20px) / 3);
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  :root {
+    --number-of-client-logo-cards-per-page: 2;
+  }
+
+  .client-logo-cards__card {
+    width: calc((80vw - 10px) / 2);
+  }
 }
